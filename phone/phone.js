@@ -1,10 +1,10 @@
 const searchInput=()=>{
     const input=document.getElementById('input');
     const inputValue=input.value;
-    if(inputValue>0 || 0>inputValue){
+    if(inputValue>0 || 0>inputValue ){
     alert("The Number Will Not Be Searched Here.Please Search By Name")
    }
-   else if(inputValue== "" ){
+   else if(inputValue== ""   ){
         alert("plese search by name")
    }
    else{ 
