@@ -20,6 +20,7 @@ const searchInput=()=>{
 const displayPhone=(phones)=>{
   const divContainer=document.getElementById('divContainer');
   divContainer.textContent="";
+  deatilsContainer.textContent='';
     phones.forEach(phone => {
       if(phone==!phone){
         document.getElementById('spinner').style.display="none";
@@ -84,13 +85,13 @@ const showDetails=(allDetailes)=>{
             <p><b>WLAN</b>: ${allDetailes.others.WLAN}</p>
             <p><b>release Date</b>: ${allDetailes.releaseDate}</p>
             
-          </div>
+            </div>
        
 
         `
         
        
-       
+        
     
      
 }
