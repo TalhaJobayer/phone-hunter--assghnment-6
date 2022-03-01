@@ -1,6 +1,7 @@
 const searchInput=()=>{
     const input=document.getElementById('input');
     const inputValue=input.value;
+    input.value="";
     if(inputValue>0 || 0>inputValue ){
     alert("The Number Will Not Be Searched Here.Please Search By Name")
    }
@@ -8,7 +9,7 @@ const searchInput=()=>{
         alert("plese search by name")
    }
    else{ 
-       input.value="";
+       
        document.getElementById('spinner').style.display="block";
     // console.log(inputValue);
     const url=`https://openapi.programming-hero.com/api/phones?search=${inputValue}`
