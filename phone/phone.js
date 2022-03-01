@@ -17,14 +17,16 @@ const searchInput=()=>{
     .then(data=>displayPhone(data.data))
    }
 }
+// serch input and fetching===============
 const displayPhone=(phones)=>{
   const divContainer=document.getElementById('divContainer');
   divContainer.textContent="";
   deatilsContainer.textContent='';
     phones.forEach(phone => {
-      if(phone==!phone){
-        document.getElementById('spinner').style.display="none";
+      if(!phone){
         alert("udfgho")
+        document.getElementById('spinner').style.display="none";
+        
       }
       else if(phone){
         document.getElementById('spinner').style.display="none";
@@ -50,6 +52,7 @@ const displayPhone=(phones)=>{
     });
 
 }
+// display phone=============================
 const displayDetails= dispalyId =>{
   const url=`https://openapi.programming-hero.com/api/phone/${dispalyId}`
  
@@ -78,12 +81,12 @@ const showDetails=(allDetailes)=>{
             <p><b>Memory</b>: ${allDetailes.mainFeatures.memory}</p>
             <p><b>sensors</b>: ${allDetailes.mainFeatures.sensors}</p>
             <h4>Others</h4>
-            <p><b>Bluetooth</b>: ${allDetailes.others.Bluetooth}</p>
-            <p><b>GPS</b>: ${allDetailes.others.GPS}</p>
-            <p><b>NFC</b>: ${allDetailes.others.NFC}</p>
-            <p><b>USB</b>: ${allDetailes.others.USB}</p>
-            <p><b>WLAN</b>: ${allDetailes.others.WLAN}</p>
-            <p><b>release Date</b>: ${allDetailes.releaseDate}</p>
+            <p><b>Bluetooth</b>: ${allDetailes.others.Bluetooth ? allDetailes.others.Bluetooth:""}</p>
+            <p><b>GPS</b>: ${allDetailes.others.GPS?allDetailes.others.GPS:""}</p>
+            <p><b>NFC</b>: ${allDetailes.others.NFC?allDetailes.others.NFC:""}</p>
+            <p><b>USB</b>: ${allDetailes.others.USB?allDetailes.others.USB:""}</p>
+            <p><b>WLAN</b>: ${allDetailes.others.WLAN ?allDetailes.others.WLAN:""}</p>
+            <p><b>release Date</b>: ${allDetailes.releaseDate ?allDetailes.releaseDate:"realesed"}</p>
             
             </div>
        
@@ -95,3 +98,4 @@ const showDetails=(allDetailes)=>{
     
      
 }
+// display phone details=======================
