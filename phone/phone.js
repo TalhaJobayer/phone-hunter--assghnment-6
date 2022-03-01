@@ -9,6 +9,7 @@ const searchInput=()=>{
    }
    else{ 
        input.value="";
+       document.getElementById('spinner').style.display="block";
     // console.log(inputValue);
     const url=`https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
@@ -20,8 +21,13 @@ const displayPhone=(phones)=>{
   const divContainer=document.getElementById('divContainer');
   divContainer.textContent="";
     phones.forEach(phone => {
-       
-        const div1=document.createElement('div')
+      if(phone==!phone){
+        document.getElementById('spinner').style.display="none";
+        alert("udfgho")
+      }
+      else if(phone){
+        document.getElementById('spinner').style.display="none";
+       const div1=document.createElement('div')
         div1.innerHTML=`
         <div class="col">
               <div class="card">
@@ -36,8 +42,10 @@ const displayPhone=(phones)=>{
             </div>
         `
         divContainer.appendChild(div1);
-       
+    }
+    
         console.log(phone);
+
     });
 
 }
@@ -51,6 +59,7 @@ const displayDetails= dispalyId =>{
 const showDetails=(allDetailes)=>{
   console.log(allDetailes);
   divContainer.textContent="";
+ 
   
   
   const deatilsContainer=document.getElementById('deatilsContainer');
@@ -62,9 +71,12 @@ const showDetails=(allDetailes)=>{
                
             </div>
             <div class="col-lg-7">
+            <h4>Main Features</h4>
             <p><b>Display Size</b>: ${allDetailes.mainFeatures.displaySize}</p>
             <p><b>Chipset</b>: ${allDetailes.mainFeatures.chipSet}</p>
             <p><b>Memory</b>: ${allDetailes.mainFeatures.memory}</p>
+            <p><b>sensors</b>: ${allDetailes.mainFeatures.sensors}</p>
+            <h4>Others</h4>
             <p><b>Bluetooth</b>: ${allDetailes.others.Bluetooth}</p>
             <p><b>GPS</b>: ${allDetailes.others.GPS}</p>
             <p><b>NFC</b>: ${allDetailes.others.NFC}</p>
