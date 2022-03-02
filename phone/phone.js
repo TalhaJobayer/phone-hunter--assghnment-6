@@ -15,11 +15,13 @@ const searchInput=()=>{
     const url=`https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(url)
     .then(res=>res.json())
-    .then(data=>displayPhone(data.data))
+    .then(data=>displayPhone(data.data.slice(0,20)))
+    
    }
 }
 // serch input and fetching===============
 const displayPhone=(phones)=>{
+  console.log(phones);
   const divContainer=document.getElementById('divContainer');
   divContainer.textContent="";
   deatilsContainer.textContent='';
@@ -35,13 +37,18 @@ const displayPhone=(phones)=>{
                   <p class="card-text" style="text-align: center;">Brand:${phone.slug}</p>
                 </div>
                 <button onclick="displayDetails('${phone.slug}')"  class="btn btn-success w-40 mx-auto">Details</button>
+                
               </div>
             </div>
         `
+        // const click=document.getElementById('showMore');
+        // if(click){
+        //   displayPhone(data.data)
+        // }
         divContainer.appendChild(div1);
     
     
-        console.log(phone);
+        // console.log(phone);
 
     });
     document.getElementById('spinner').style.display="none";
@@ -59,11 +66,7 @@ const displayDetails= dispalyId =>{
 }
 const showDetails=(allDetailes)=>{
   console.log(allDetailes);
-  
- 
-  
-  
-  const deatilsContainer=document.getElementById('deatilsContainer');
+   const deatilsContainer=document.getElementById('deatilsContainer');
 
   deatilsContainer.innerHTML=`
       
@@ -86,11 +89,7 @@ const showDetails=(allDetailes)=>{
             <p><b>release Date</b>: ${allDetailes.releaseDate ?allDetailes.releaseDate:"realesed"}</p>
             
             </div>
-       
-
         `
-        
-       
         document.getElementById('spinner').style.display="none";
         
      
