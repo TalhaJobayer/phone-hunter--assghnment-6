@@ -48,7 +48,7 @@ const displayPhone=(phones)=>{
         divContainer.appendChild(div1);
     
     
-        // console.log(phone);
+        // console.log(phone checked);
 
     });
     document.getElementById('spinner').style.display="none";
